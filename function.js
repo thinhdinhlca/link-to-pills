@@ -1,115 +1,88 @@
 // https://www.chartjs.org/
 
 
-window.function = function (data, width, height, max) {
+window.function = function (coordinates,center) {
 
   // data
-  data = data.value ?? "";
-  max = max.value ?? "";
-  width = width.value ?? "100";
-  height = height.value ?? "80";
+ coordinates = coordinates.value ?? "";
+ center = center.value ?? "";
  
 
   let ht = `<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Glide Yes-Code</title>
-
-<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-  </head>
-  <body>
-<div id="chartdiv"></div>
+<head>
+<meta charset="utf-8">
+<title>Add a line to a map using a GeoJSON source</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
 <style>
-#chartdiv {
-  width: ${width}vw;
-  height: ${height}vh;
-}
-
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
 </style>
-    <script>
-am4core.ready(function() {
-
-// Themes begin
-am4core.useTheme(am4themes_animated);
-// Themes end
-
-var chart = am4core.create("chartdiv", am4charts.XYChart);
-chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
-chart.paddingRight = 20;
-chart.paddingLeft = 0;
-chart.dateFormatter.inputDateFormat = "yyyy-MM-dd HH:mm:ss";
-
-chart.data = [
-  ${data}
-];
-
-var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
-categoryAxis.dataFields.category = "name";
-categoryAxis.renderer.grid.template.location = 0;
-categoryAxis.renderer.inversed = true;
-categoryAxis.renderer.labels.template.fontSize = 12;
-
-var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-dateAxis.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss";
-dateAxis.renderer.minGridDistance = 50;
-dateAxis.baseInterval = { count: 6, timeUnit: "seconds" };
-dateAxis.max = "${max}";
-dateAxis.strictMinMax = true;
-dateAxis.renderer.tooltipLocation = 0;
-dateAxis.renderer.labels.template.fontSize = 12;
-
-var series1 = chart.series.push(new am4charts.ColumnSeries());
-series1.columns.template.width = am4core.percent(40);
-series1.columns.template.tooltipText = "{tag}: {fromX} - {toX}";
-
-series1.dataFields.openDateX = "fromDate";
-series1.dataFields.dateX = "toDate";
-series1.dataFields.tagX = "tag";
-series1.dataFields.categoryY = "name";
-series1.dataFields.fromX = "fromTime";
-series1.dataFields.toX = "toTime";
-series1.columns.template.propertyFields.fill = "color"; // get color from data
-series1.columns.template.propertyFields.stroke = "color";
-series1.columns.template.strokeOpacity = 1;
-
-
-chart.scrollbarX = new am4core.Scrollbar();
-chart.scrollbarX.startGrip.background.fill = am4core.color("black");
-chart.scrollbarX.endGrip.background.fill = am4core.color("black");
-chart.scrollbarX.thumb.background.fill = am4core.color("black");
-
-var buttonContainer = chart.plotContainer.createChild(am4core.Container);
-buttonContainer.shouldClone = false;
-buttonContainer.align = "right";
-buttonContainer.valign = "top";
-buttonContainer.zIndex = Number.MAX_SAFE_INTEGER;
-buttonContainer.marginTop = 5;
-buttonContainer.marginRight = 5;
-buttonContainer.layout = "horizontal";
-
-var zoomInButton = buttonContainer.createChild(am4core.Button);
-zoomInButton.label.text = "+";
-zoomInButton.events.on("hit", function(ev) {
-  var diff = dateAxis.maxZoomed - dateAxis.minZoomed;
-  var delta = diff * 0.1;
-  dateAxis.zoomToDates(new Date(dateAxis.minZoomed + delta), new Date(dateAxis.maxZoomed - delta));
+</head>
+<body>
+<div id="map"></div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZHlsYW5kaWNrbWFuIiwiYSI6ImNrdWlqcHdzazBzbXYyd29mM2hmaTVvdHEifQ.HlV_ER1WGiQiDwItCNMisg';
+const map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [-122.486052, 37.830348],
+zoom: 15
 });
-
-var zoomOutButton = buttonContainer.createChild(am4core.Button);
-zoomOutButton.label.text = "-";
-zoomOutButton.events.on("hit", function(ev) {
-  var diff = dateAxis.maxZoomed - dateAxis.minZoomed;
-  var delta = diff * 0.1;
-  dateAxis.zoomToDates(new Date(dateAxis.minZoomed - delta), new Date(dateAxis.maxZoomed + delta));
-  });
-}); // end am4core.ready()
+ 
+map.on('load', () => {
+map.addSource('route', {
+'type': 'geojson',
+'data': {
+'type': 'Feature',
+'properties': {},
+'geometry': {
+'type': 'LineString',
+'coordinates': [
+[-122.483696, 37.833818],
+[-122.483482, 37.833174],
+[-122.483396, 37.8327],
+[-122.483568, 37.832056],
+[-122.48404, 37.831141],
+[-122.48404, 37.830497],
+[-122.483482, 37.82992],
+[-122.483568, 37.829548],
+[-122.48507, 37.829446],
+[-122.4861, 37.828802],
+[-122.486958, 37.82931],
+[-122.487001, 37.830802],
+[-122.487516, 37.831683],
+[-122.488031, 37.832158],
+[-122.488889, 37.832971],
+[-122.489876, 37.832632],
+[-122.490434, 37.832937],
+[-122.49125, 37.832429],
+[-122.491636, 37.832564],
+[-122.492237, 37.833378],
+[-122.493782, 37.833683]
+]
+}
+}
+});
+map.addLayer({
+'id': 'route',
+'type': 'line',
+'source': 'route',
+'layout': {
+'line-join': 'round',
+'line-cap': 'round'
+},
+'paint': {
+'line-color': '#888',
+'line-width': 8
+}
+});
+});
 </script>
-
-
-  </body>
+ 
+</body>
 </html>`
 
   let enc = encodeURIComponent(ht);
