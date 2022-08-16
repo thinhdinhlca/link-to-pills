@@ -13,6 +13,11 @@
       "name": "center",
       "displayName": "Center",
       "type": "string"
+    },
+    {
+      "name": "zoom",
+      "displayName": "Zoom",
+      "type": "number"
     }
   ],
   "result": {
