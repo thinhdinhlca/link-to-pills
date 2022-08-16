@@ -6,7 +6,7 @@ window.function = function (coordinates,center,zoom) {
   // data
  coordinates = coordinates.value ?? "";
  center = center.value ?? "";
- zoom = zoom.value ?? "";
+ zoom = zoom.value ?? "5";
  
 
   let ht = `<!DOCTYPE html>
