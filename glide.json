@@ -5,7 +5,7 @@
   "author": "Thinh Dinh <thinh@lowcode.agency>",
   "params": [
     {
-      "name": "coordiantes",
+      "name": "coordinates",
       "displayName": "Coordinates",
       "type": "string"
     },
