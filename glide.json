@@ -1,28 +1,18 @@
 {
   "kind": "column",
-  "name": "Customized timeline chart",
+  "name": "Customized Mapbox line map",
   "description": "",
   "author": "Thinh Dinh <thinh@lowcode.agency>",
   "params": [
     {
-      "name": "data",
-      "displayName": "Timeline data",
+      "name": "coordiantes",
+      "displayName": "Coordinates",
       "type": "string"
     },
     {
-      "name": "max",
-      "displayName": "Timeline max",
+      "name": "center",
+      "displayName": "Center",
       "type": "string"
-    },
-    {
-      "name": "width",
-      "displayName": "Width (default to 100vw)",
-      "type": "number"
-    },
-    {
-      "name": "height",
-      "displayName": "Height (default to 80vh)",
-      "type": "number"
     }
   ],
   "result": {
