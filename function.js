@@ -87,9 +87,7 @@ for (const feature of geojson.features) {
             new mapboxgl.Popup({
                 offset: 25
             }) // add popups
-            .setHTML(
-                `currentFeature.properties.title</h3><p>Latitude: currentFeature.properties.latitude</p><p>Longitude: currentFeature.properties.longitude</p>`
-            )
+            .setHTML(feature.properties.title)
         )
         .addTo(map);
 }
