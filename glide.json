@@ -18,6 +18,11 @@
       "name": "zoom",
       "displayName": "Zoom",
       "type": "number"
+    },
+    {
+      "name": "features",
+      "displayName": "Features",
+      "type": "string"
     }
   ],
   "result": {
