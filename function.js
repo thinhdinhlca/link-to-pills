@@ -18,14 +18,26 @@ window.function = function (coordinates,center,zoom) {
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
 <style>
-body { margin: 0; padding: 0; }
-#map { position: absolute; top: 0; bottom: 0; width: 100%; }
-#menu {
+
+body {
+margin: 0;
+padding: 0;
+}
+
+div[id="map"] {
+position: absolute;
+top: 0;
+bottom: 0;
+width: 100%;
+}
+
+div[id="menu"] {
 position: absolute;
 background: #efefef;
 padding: 10px;
 font-family: 'Open Sans', sans-serif;
 }
+
 </style>
 
 
