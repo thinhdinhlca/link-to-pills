@@ -32,6 +32,11 @@ style: 'mapbox://styles/mapbox/streets-v11',
 center: [${center}],
 zoom: ${zoom}
 });
+
+const nav = new mapboxgl.NavigationControl({
+visualizePitch: true
+});
+map.addControl(nav, 'bottom-right');
  
 map.on('load', () => {
 map.addSource('route', {
