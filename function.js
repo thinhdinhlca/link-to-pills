@@ -1,11 +1,11 @@
 // https://www.chartjs.org/
 
 
-window.function = function (coordinates,center,zoom,features) {
+window.function = function (coordinates,center,zoom,details) {
 
   // data
  coordinates = coordinates.value ?? "";
- features = features.value ?? "";
+ details = details.value ?? "";
  center = center.value ?? "";
  zoom = zoom.value ?? "5";
  
@@ -64,7 +64,7 @@ body {
 
       const geojson = {
         'type': 'FeatureCollection',
-        'features': [${features}]
+        'features': [${details}]
       };
 
       const map = new mapboxgl.Map({
