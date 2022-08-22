@@ -88,7 +88,7 @@ for (const feature of geojson.features) {
                 offset: 25
             }) // add popups
             .setHTML(
-                `<h3>feature.properties.title</h3><p>Latitude: feature.properties.latitude</p><p>Longitude: feature.properties.longitude</p>`
+                `currentFeature.properties.title</h3><p>Latitude: currentFeature.properties.latitude</p><p>Longitude: currentFeature.properties.longitude</p>`
             )
         )
         .addTo(map);
