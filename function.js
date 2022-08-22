@@ -86,7 +86,7 @@ body {
           .setPopup(
             new mapboxgl.Popup({ offset: 25 }) // add popups
               .setHTML(
-                `<h3>\${feature.properties.title}</h3><p>Latitude: ${feature.properties.latitude}</p><p>Longitude: \${feature.properties.longitude}</p>`
+                `Test`
               )
           )
           .addTo(map);
