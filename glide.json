@@ -20,8 +20,8 @@
       "type": "number"
     },
     {
-      "name": "features",
-      "displayName": "Features",
+      "name": "details",
+      "displayName": "Details",
       "type": "string"
     }
   ],
