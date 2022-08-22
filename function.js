@@ -25,9 +25,10 @@ position: absolute;
 background: #efefef;
 padding: 10px;
 font-family: 'Open Sans', sans-serif;
+}
 </style>
 
-}
+
 </head>
 <body>
 <div id="menu">
