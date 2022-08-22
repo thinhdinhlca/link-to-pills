@@ -60,17 +60,13 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZHlsYW5kaWNrbWFuIiwiYSI6ImNrdWlqcHdzazBzbXYyd
 
 const geojson = {
     'type': 'FeatureCollection',
-    'features': [$ {
-        details
-    }]
+    'features': [${details}]
 };
 
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v10',
-    center: [$ {
-        center
-    }],
+    center: [${center}],
     zoom: 3
 });
 
