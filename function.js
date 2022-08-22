@@ -20,12 +20,13 @@ window.function = function (coordinates,center,zoom) {
 <style>
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
-</style>
 #menu {
 position: absolute;
 background: #efefef;
 padding: 10px;
 font-family: 'Open Sans', sans-serif;
+</style>
+
 }
 </head>
 <body>
