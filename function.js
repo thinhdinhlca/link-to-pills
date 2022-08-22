@@ -64,14 +64,13 @@ body {
 
       const geojson = {
         'type': 'FeatureCollection',
-        'features': [${features}
-        ]
+        'features': [${features}]
       };
 
       const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/light-v10',
-        center: [-96, 37.8],
+        center: [${center}],
         zoom: 3
       });
 
@@ -101,7 +100,7 @@ map.addSource('route', {
 'properties': {},
 'geometry': {
 'type': 'LineString',
-'coordinates': [${coordinates}
+'coordinates': [${coordinates}]
 }
 }
 });
