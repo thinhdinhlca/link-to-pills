@@ -53,16 +53,6 @@ center: [${center}],
 zoom: ${zoom}
 });
 
-const layerList = document.getElementById('menu');
-const inputs = layerList.getElementsByTagName('input');
- 
-for (const input of inputs) {
-input.onclick = (layer) => {
-const layerId = layer.target.id;
-map.setStyle('mapbox://styles/mapbox/' + layerId);
-};
-}
-
 const nav = new mapboxgl.NavigationControl({
 visualizePitch: true
 });
@@ -94,6 +84,17 @@ map.addLayer({
 }
 });
 });
+
+const layerList = document.getElementById('menu');
+const inputs = layerList.getElementsByTagName('input');
+ 
+for (const input of inputs) {
+input.onclick = (layer) => {
+const layerId = layer.target.id;
+map.setStyle('mapbox://styles/mapbox/' + layerId);
+};
+}
+
 </script>
  
 </body>
