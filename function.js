@@ -56,37 +56,43 @@ body {
 
 <script>
 	
-      mapboxgl.accessToken = 'pk.eyJ1IjoiZHlsYW5kaWNrbWFuIiwiYSI6ImNrdWlqcHdzazBzbXYyd29mM2hmaTVvdHEifQ.HlV_ER1WGiQiDwItCNMisg';
+mapboxgl.accessToken = 'pk.eyJ1IjoiZHlsYW5kaWNrbWFuIiwiYSI6ImNrdWlqcHdzazBzbXYyd29mM2hmaTVvdHEifQ.HlV_ER1WGiQiDwItCNMisg';
 
-      const geojson = {
-        'type': 'FeatureCollection',
-        'features': [${details}]
-      };
+const geojson = {
+    'type': 'FeatureCollection',
+    'features': [$ {
+        details
+    }]
+};
 
-      const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/light-v10',
-        center: [${center}],
-        zoom: 3
-      });
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v10',
+    center: [$ {
+        center
+    }],
+    zoom: 3
+});
 
-      // add markers to map
-      for (const feature of geojson.features) {
-        // create a HTML element for each feature
-        const el = document.createElement('div');
-        el.className = 'marker';
+// add markers to map
+for (const feature of geojson.features) {
+    // create a HTML element for each feature
+    const el = document.createElement('div');
+    el.className = 'marker';
 
-        // make a marker for each feature and add it to the map
-        new mapboxgl.Marker(el)
-          .setLngLat(feature.geometry.coordinates)
-          .setPopup(
-            new mapboxgl.Popup({ offset: 25 }) // add popups
-              .setHTML(
+    // make a marker for each feature and add it to the map
+    new mapboxgl.Marker(el)
+        .setLngLat(feature.geometry.coordinates)
+        .setPopup(
+            new mapboxgl.Popup({
+                offset: 25
+            }) // add popups
+            .setHTML(
                 `Test`
-              )
-          )
-          .addTo(map);
-      }
+            )
+        )
+        .addTo(map);
+}
     
 map.on('load', () => {
 map.addSource('route', {
