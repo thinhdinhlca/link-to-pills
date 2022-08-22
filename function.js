@@ -1,13 +1,10 @@
-// https://www.chartjs.org/
-
-
 window.function = function (coordinates,center,zoom,details) {
 
   // data
  coordinates = coordinates.value ?? "";
- details = details.value ?? "";
  center = center.value ?? "";
  zoom = zoom.value ?? "5";
+ details = details.value ?? "";
  
 
   let ht = `<!DOCTYPE html>
@@ -50,14 +47,13 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-
 </style>
-
 
 </head>
 <body>
 
 <div id="map"></div>
+
 <script>
 	
       mapboxgl.accessToken = 'pk.eyJ1IjoiZHlsYW5kaWNrbWFuIiwiYSI6ImNrdWlqcHdzazBzbXYyd29mM2hmaTVvdHEifQ.HlV_ER1WGiQiDwItCNMisg';
