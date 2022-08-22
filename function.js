@@ -29,7 +29,6 @@ font-family: 'Open Sans', sans-serif;
 }
 </head>
 <body>
-<div id="map"></div>
 <div id="menu">
 <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">
 <!-- See a list of Mapbox-hosted public styles at -->
@@ -44,6 +43,7 @@ font-family: 'Open Sans', sans-serif;
 <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
 <label for="outdoors-v11">outdoors</label>
 </div>
+<div id="map"></div>
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZHlsYW5kaWNrbWFuIiwiYSI6ImNrdWlqcHdzazBzbXYyd29mM2hmaTVvdHEifQ.HlV_ER1WGiQiDwItCNMisg';
 const map = new mapboxgl.Map({
