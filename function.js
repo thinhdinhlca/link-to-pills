@@ -21,9 +21,29 @@ window.function = function (coordinates,center,zoom) {
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 </style>
+#menu {
+position: absolute;
+background: #efefef;
+padding: 10px;
+font-family: 'Open Sans', sans-serif;
+}
 </head>
 <body>
 <div id="map"></div>
+<div id="menu">
+<input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">
+<!-- See a list of Mapbox-hosted public styles at -->
+<!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
+<label for="satellite-v9">satellite</label>
+<input id="light-v10" type="radio" name="rtoggle" value="light">
+<label for="light-v10">light</label>
+<input id="dark-v10" type="radio" name="rtoggle" value="dark">
+<label for="dark-v10">dark</label>
+<input id="streets-v11" type="radio" name="rtoggle" value="streets">
+<label for="streets-v11">streets</label>
+<input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
+<label for="outdoors-v11">outdoors</label>
+</div>
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZHlsYW5kaWNrbWFuIiwiYSI6ImNrdWlqcHdzazBzbXYyd29mM2hmaTVvdHEifQ.HlV_ER1WGiQiDwItCNMisg';
 const map = new mapboxgl.Map({
@@ -32,6 +52,16 @@ style: 'mapbox://styles/mapbox/streets-v11',
 center: [${center}],
 zoom: ${zoom}
 });
+
+const layerList = document.getElementById('menu');
+const inputs = layerList.getElementsByTagName('input');
+ 
+for (const input of inputs) {
+input.onclick = (layer) => {
+const layerId = layer.target.id;
+map.setStyle('mapbox://styles/mapbox/' + layerId);
+};
+}
 
 const nav = new mapboxgl.NavigationControl({
 visualizePitch: true
