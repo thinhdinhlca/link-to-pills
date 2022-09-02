@@ -110,7 +110,7 @@ map.addLayer({
 'line-cap': 'round'
 },
 'paint': {
-'line-color': '#FFF',
+'line-color': '#ffd700',
 'line-width': 6
 }
 });
