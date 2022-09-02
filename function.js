@@ -30,7 +30,7 @@ body {
 }
 
 .marker {
-  background-image: url("https://docs.mapbox.com/help/demos/custom-markers-gl-js/mapbox-icon.png");
+  background-image: url("https://i.imgur.com/ZWPec44.png");
   background-size: cover;
   width: 20px;
   height: 20px;
@@ -110,7 +110,7 @@ map.addLayer({
 'line-cap': 'round'
 },
 'paint': {
-'line-color': '#888',
+'line-color': '#FFF',
 'line-width': 6
 }
 });
