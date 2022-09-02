@@ -65,7 +65,7 @@ const geojson = {
 
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/light-v10',
+    style: 'mapbox://styles/dylandickman/cl0txkrs4000s16mobxi0nqin',
     center: [${center}],
     zoom: 3
 });
