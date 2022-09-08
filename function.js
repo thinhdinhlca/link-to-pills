@@ -70,7 +70,7 @@ const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/dylandickman/cl7sg3360001e14n54oxwti0p',
     center: [${center}],
-    zoom: 2
+    maxZoom: 5
 });
 
 // add markers to map
