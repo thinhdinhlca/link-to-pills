@@ -1,10 +1,11 @@
-window.function = function (coordinates,center,zoom,details) {
+window.function = function (coordinates,center,zoom,details,lastindex) {
 
   // data
  coordinates = coordinates.value ?? "";
  center = center.value ?? "";
  zoom = zoom.value ?? "5";
  details = details.value ?? "";
+ lastindex = lastindex.value ?? "0";
  
 
   let ht = `<!DOCTYPE html>
@@ -122,7 +123,7 @@ const coordinates = geojson.features[0].geometry.coordinates;
 // Create a 'LngLatBounds' with both corners at the first coordinate.
 const bounds = new mapboxgl.LngLatBounds(
 coordinates[0],
-coordinates[coordinates.length]
+coordinates[${lastindex}]
 );
  
 // Extend the 'LngLatBounds' to include every coordinate in the bounds result.
