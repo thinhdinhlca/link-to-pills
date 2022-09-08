@@ -5,8 +5,8 @@ window.function = function (coordinates,center,zoom,details,first,last) {
  center = center.value ?? "";
  zoom = zoom.value ?? "5";
  details = details.value ?? "";
- first = first.value ?? "";
- last = last.value ?? "";
+ first = first.value ?? "[0,0]";
+ last = last.value ?? "[0,0]";
  
 
   let ht = `<!DOCTYPE html>
