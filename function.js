@@ -119,7 +119,7 @@ map.addLayer({
 });
 });
 
-map.fitBounds([${first},${last}],{padding: 100});
+map.fitBounds([${first},${last}],{padding: 200});
 
 </script>
  
