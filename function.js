@@ -15,6 +15,7 @@ window.function = function (coordinates,center,zoom,details) {
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
 <style>
 
 body {
@@ -87,7 +88,9 @@ for (const feature of geojson.features) {
         )
         .addTo(map);
 }
-    
+
+var bounds = turf.bbox(geojson);
+
 map.on('load', () => {
 map.addSource('route', {
 'type': 'geojson',
@@ -115,6 +118,8 @@ map.addLayer({
 }
 });
 });
+
+map.fitBounds(bounds, {padding: 20});
 
 </script>
  
