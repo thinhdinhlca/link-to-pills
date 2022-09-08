@@ -23,6 +23,11 @@
       "name": "details",
       "displayName": "Details",
       "type": "string"
+    },
+    {
+      "name": "lastindex",
+      "displayName": "Last coordinates index",
+      "type": "number"
     }
   ],
   "result": {
