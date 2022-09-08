@@ -89,8 +89,6 @@ for (const feature of geojson.features) {
         .addTo(map);
 }
 
-map.fitBounds(geojsonExtent(geojson));
-
 map.on('load', () => {
 map.addSource('route', {
 'type': 'geojson',
