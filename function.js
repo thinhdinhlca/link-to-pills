@@ -89,7 +89,7 @@ for (const feature of geojson.features) {
         .addTo(map);
 }
 
-var bounds = turf.bbox(geojson);
+map.fitBounds(geojsonExtent(geojson));
 
 map.on('load', () => {
 map.addSource('route', {
@@ -118,8 +118,6 @@ map.addLayer({
 }
 });
 });
-
-map.fitBounds(bounds, {padding: 20});
 
 </script>
  
