@@ -25,9 +25,14 @@
       "type": "string"
     },
     {
-      "name": "lastindex",
-      "displayName": "Last coordinates index",
-      "type": "number"
+      "name": "first",
+      "displayName": "First coordinates",
+      "type": "string"
+    },
+    {
+      "name": "last",
+      "displayName": "Last coordinates",
+      "type": "string"
     }
   ],
   "result": {
