@@ -33,7 +33,7 @@ body {
 }
 
 .marker {
-  background-image: url("https://i.imgur.com/5qNOIK8.png");
+  background-image: url("https://i.imgur.com/a0w02ns.png");
   background-size: cover;
   width: 20px;
   height: 20px;
