@@ -2,7 +2,7 @@ window.function = function (centerString, radius) {
 
   // data
  centerString = centerString.value ?? "";
- radius = radius.value ?? 5;
+ radius = radius.value ?? "5";
 
   
   // Parse the center string into an array of floats [longitude, latitude]
