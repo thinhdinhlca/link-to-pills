@@ -1,12 +1,15 @@
 window.function = function (centerString, radius) {
+
+  // data
+ centerString = centerString.value ?? "";
+ radius = radius.value ?? 5;
+
+  
   // Parse the center string into an array of floats [longitude, latitude]
   const center = centerString.split(',').map(Number);
 
-  // Validate radius
-  radius = radius || 5; // Default radius to 5 km if not provided
-
   // Define your Mapbox access token and the style URL here
-  const accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+  const accessToken = 'pk.eyJ1IjoiZHlsYW5kaWNrbWFuIiwiYSI6ImNrdWlqcHdzazBzbXYyd29mM2hmaTVvdHEifQ.HlV_ER1WGiQiDwItCNMisg';
   const styleUrl = 'mapbox://styles/mapbox/streets-v11'; // Use your preferred style
 
   // Encode the HTML content for the map
@@ -30,7 +33,6 @@ body { margin: 0; padding: 0; }
 mapboxgl.accessToken = '${accessToken}';
 const map = new mapboxgl.Map({
     container: 'map',
-    style: '${styleUrl}',
     center: ${JSON.stringify(center)},
     zoom: 10
 });
