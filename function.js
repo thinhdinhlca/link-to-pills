@@ -1,4 +1,9 @@
 window.function = function (center, radiusKm) {
+
+  // Extract values or set default to empty string
+  center = center.value ?? "";
+  radiusKm = radiusKm.value ?? "";
+  
   // Ensure the input is converted correctly
   center = center.split(',').map(Number); // Convert center to an array of numbers
   radiusKm = Number(radiusKm); // Ensure radius is a number
