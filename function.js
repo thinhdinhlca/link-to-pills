@@ -18,7 +18,7 @@ window.function = function (center, radiusKm) {
 <title>Map with Radius</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
-<script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
+<script src="https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
 <style>
   body { margin: 0; padding: 0; }
