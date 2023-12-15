@@ -1,6 +1,6 @@
 {
   "kind": "column",
-  "name": "Customized Mapbox line map",
+  "name": "Customized Mapbox with radius",
   "description": "",
   "author": "Thinh Dinh <thinh@lowcode.agency>",
   "params": [
@@ -10,29 +10,9 @@
       "type": "string"
     },
     {
-      "name": "center",
-      "displayName": "Center",
-      "type": "string"
-    },
-    {
-      "name": "zoom",
-      "displayName": "Zoom",
+      "name": "radius",
+      "displayName": "Radius",
       "type": "number"
-    },
-    {
-      "name": "details",
-      "displayName": "Details",
-      "type": "string"
-    },
-    {
-      "name": "first",
-      "displayName": "First coordinates",
-      "type": "string"
-    },
-    {
-      "name": "last",
-      "displayName": "Last coordinates",
-      "type": "string"
     }
   ],
   "result": {
