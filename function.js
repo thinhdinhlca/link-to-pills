@@ -37,7 +37,7 @@ width: 100%;
 mapboxgl.accessToken = '${accessToken}';
 const map = new mapboxgl.Map({
     container: 'map',
-    center: [${center}],
+    center: [${centerString}],
     zoom: 10
 });
 
