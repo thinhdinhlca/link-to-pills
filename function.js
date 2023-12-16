@@ -12,10 +12,10 @@ window.function = function (centerString, radius) {
 <html>
 <head>
 <meta charset=utf-8 />
-<title>A simple map</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-<script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
-<link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.css' rel='stylesheet' />
+<link rel="stylesheet" href="style.css">
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.js'></script>
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -24,10 +24,45 @@ window.function = function (centerString, radius) {
 <body>
 <div id='map'></div>
 <script>
-L.mapbox.accessToken = '${accessToken}';
-var map = L.mapbox.map('map')
-    .setView([${centerString}], ${radius})
-    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+mapboxgl.accessToken = '${accessToken}';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v8',
+    center: [${centerString}],
+    zoom: 3,
+    interactive: true
+});
+
+map.on('style.load', function (e) {
+    map.addSource('markers', {
+        "type": "geojson",
+        "data": {
+            "type": "FeatureCollection",
+            "features": [{
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [${centerString}]
+                },
+                "properties": {
+                    "modelId": 1,
+                },
+            }]
+        }
+    });
+    map.addLayer({
+        "id": "circles1",
+        "source": "markers",
+        "type": "circle",
+        "paint": {
+            "circle-radius": ${radius},
+            "circle-color": "#007cbf",
+            "circle-opacity": 0.5,
+            "circle-stroke-width": 0,
+        },
+        "filter": ["==", "modelId", 1],
+    });
+});
 </script>
 </body>
 </html>`;
