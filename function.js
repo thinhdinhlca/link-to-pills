@@ -26,7 +26,7 @@ window.function = function (centerString, radius) {
 <script>
 L.mapbox.accessToken = '${accessToken}';
 var map = L.mapbox.map('map')
-    .setView([40, -74.50], 9)
+    .setView([${centerString}], ${radius})
     .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
 </script>
 </body>
