@@ -41,7 +41,7 @@ const options = {steps: 50, units: 'kilometers'};
 const map = new mapboxgl.Map({
     container: 'map',
     center: [${centerString}],
-    zoom: 10
+    zoom: 2
 });
 
 map.on('load', function () {
