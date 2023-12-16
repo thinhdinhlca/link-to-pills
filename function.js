@@ -18,15 +18,26 @@ window.function = function (centerString, radius) {
 <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
 <script src='https://npmcdn.com/mapbox-gl-circle/dist/mapbox-gl-circle.min.js'></script>
 <style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
 </style>
 </head>
 <body>
-<div id='map'></div>
+<div id="map"></div>
 <script>
 mapboxgl.accessToken = '${accessToken}';
-var map = new mapboxgl.Map({
+const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v8',
     center: [${centerString}],
@@ -34,7 +45,7 @@ var map = new mapboxgl.Map({
     interactive: true
 });
 
-var myCircle = new MapboxCircle([${centerString}, ${radius}*1000, {
+var myCircle = new MapboxCircle([${centerString}, ${radius}, {
         editable: false,
         fillColor: '#29AB87'
     }).addTo(map);
