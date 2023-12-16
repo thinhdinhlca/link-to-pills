@@ -1,26 +1,26 @@
 {
-  "kind": "column",
-  "name": "Customized Mapbox with radius",
-  "description": "",
-  "author": "Thinh Dinh <thinh@lowcode.agency>",
-  "params": [
-    {
-      "name": "centerString",
-      "displayName": "Coordinates",
-      "type": "string"
-    },
-    {
-      "name": "radius",
-      "displayName": "Radius",
-      "type": "number"
-    },
-    {
-      "name": "zoom",
-      "displayName": "Zoom level",
-      "type": "number"
+    "kind": "column",
+    "name": "Customized Mapbox with radius",
+    "description": "",
+    "author": "Thinh Dinh <thinh@lowcode.agency>",
+    "params": [
+        {
+            "name": "centerString",
+            "displayName": "Coordinates",
+            "type": "string"
+        },
+        {
+            "name": "radius",
+            "displayName": "Radius",
+            "type": "number"
+        },
+        {
+            "name": "zoom",
+            "displayName": "Zoom level",
+            "type": "number"
+        }
+    ],
+    "result": {
+        "type": "uri"
     }
-  ],
-  "result": {
-    "type": "uri"
-  }
 }
