@@ -1,7 +1,8 @@
-window.function = function (centerString, radius) {
+window.function = function (centerString, radius, zoom) {
   // Data
   centerString = centerString.value ?? "";
-  radius = radius.value ?? "5";
+  radius = radius.value ?? 5;
+  zoom = zoom.value ?? 5;
 
   // Define your Mapbox access token
   const accessToken = 'pk.eyJ1IjoiZHlsYW5kaWNrbWFuIiwiYSI6ImNrdWlqcHdzazBzbXYyd29mM2hmaTVvdHEifQ.HlV_ER1WGiQiDwItCNMisg';
