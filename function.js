@@ -45,7 +45,7 @@ const map = new mapboxgl.Map({
     interactive: true
 });
 
-// var myCircle = new MapboxCircle([${centerString}, ${radius}, {
+// var myCircle = new MapboxCircle([${centerString}], ${radius}*1000, {
 //         editable: false,
 //         fillColor: '#29AB87'
 //     }).addTo(map);
