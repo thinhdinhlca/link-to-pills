@@ -1,14 +1,14 @@
 window.function = function (centerString, radius) {
+  // Data
+  centerString = centerString.value ?? "";
+  radius = radius.value ?? "5";
 
-  // data
- centerString = centerString.value ?? "";
- radius = radius.value ?? "5";
-
-  // Define your Mapbox access token and the style URL here
+  // Define your Mapbox access token
   const accessToken = 'pk.eyJ1IjoiZHlsYW5kaWNrbWFuIiwiYSI6ImNrdWlqcHdzazBzbXYyd29mM2hmaTVvdHEifQ.HlV_ER1WGiQiDwItCNMisg';
 
-  // Encode the HTML content for the map
-  let htmlContent = `<!DOCTYPE html>
+  // HTML content for the map
+  let htmlContent = `
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset=utf-8 />
@@ -18,19 +18,16 @@ window.function = function (centerString, radius) {
 <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
 <script src='https://npmcdn.com/mapbox-gl-circle/dist/mapbox-gl-circle.min.js'></script>
 <style>
-
 body {
   margin: 0;
   padding: 0;
 }
-
 #map {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 100%;
 }
-
 </style>
 </head>
 <body>
@@ -45,10 +42,16 @@ const map = new mapboxgl.Map({
     interactive: true
 });
 
+// Add a circle to the map
 var myCircle = new MapboxCircle([${centerString}], ${radius}*1000, {
         editable: false,
         fillColor: '#29AB87'
     }).addTo(map);
+
+// Add a marker to the map at the same coordinates as the circle's center
+var marker = new mapboxgl.Marker()
+    .setLngLat([${centerString}])
+    .addTo(map);
 </script>
 </body>
 </html>`;
