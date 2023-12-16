@@ -43,7 +43,7 @@ const map = new mapboxgl.Map({
 
 map.on('load', function () {
     // Use Turf to create a circle feature
-    var circle = turf.circle(${JSON.stringify(center)}, ${radius}, {
+    var circle = turf.circle([${centerString}], ${radius}, {
         steps: 80,
         units: 'kilometers'
     });
