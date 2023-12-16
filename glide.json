@@ -13,6 +13,11 @@
       "name": "radius",
       "displayName": "Radius",
       "type": "number"
+    },
+    {
+      "name": "zoom",
+      "displayName": "Zoom level",
+      "type": "number"
     }
   ],
   "result": {
