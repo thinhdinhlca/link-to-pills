@@ -35,6 +35,9 @@ width: 100%;
 <div id="map"></div>
 <script>
 mapboxgl.accessToken = '${accessToken}';
+const center = [${centerString}];
+const radius = ${radius};
+const options = {steps: 50, units: 'kilometers'};
 const map = new mapboxgl.Map({
     container: 'map',
     center: [${centerString}],
@@ -43,10 +46,7 @@ const map = new mapboxgl.Map({
 
 map.on('load', function () {
     // Use Turf to create a circle feature
-    var circle = turf.circle([${centerString}], ${radius}, {
-        steps: 80,
-        units: 'kilometers'
-    });
+    var circle = turf.circle(center, radius, options);
 
     // Add the circle to the map
     map.addSource('circle', {
@@ -64,9 +64,6 @@ map.on('load', function () {
         }
     });
 
-    // Adjust the map view to include the circle with padding
-    var bounds = turf.bbox(circle);
-    map.fitBounds(bounds, { padding: 50 });
 });
 </script>
 </body>
