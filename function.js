@@ -4,13 +4,8 @@ window.function = function (centerString, radius) {
  centerString = centerString.value ?? "";
  radius = radius.value ?? "5";
 
-  
-  // Parse the center string into an array of floats [longitude, latitude]
-  const center = centerString.split(',').map(Number);
-
   // Define your Mapbox access token and the style URL here
   const accessToken = 'pk.eyJ1IjoiZHlsYW5kaWNrbWFuIiwiYSI6ImNrdWlqcHdzazBzbXYyd29mM2hmaTVvdHEifQ.HlV_ER1WGiQiDwItCNMisg';
-  const styleUrl = 'mapbox://styles/mapbox/streets-v11'; // Use your preferred style
 
   // Encode the HTML content for the map
   let htmlContent = `<!DOCTYPE html>
@@ -23,8 +18,17 @@ window.function = function (centerString, radius) {
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
 <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
 <style>
-body { margin: 0; padding: 0; }
-#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+body {
+margin: 0;
+padding: 0;
+}
+
+#map {
+position: absolute;
+top: 0;
+bottom: 0;
+width: 100%;
+}
 </style>
 </head>
 <body>
@@ -33,7 +37,7 @@ body { margin: 0; padding: 0; }
 mapboxgl.accessToken = '${accessToken}';
 const map = new mapboxgl.Map({
     container: 'map',
-    center: ${JSON.stringify(center)},
+    center: [${center}],
     zoom: 10
 });
 
