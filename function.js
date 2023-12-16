@@ -41,7 +41,7 @@ const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v8',
     center: [${centerString}],
-    zoom: 3,
+    zoom: 10,
     interactive: true
 });
 
