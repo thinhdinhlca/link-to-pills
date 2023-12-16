@@ -13,9 +13,10 @@ window.function = function (centerString, radius) {
 <head>
 <meta charset=utf-8 />
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.css' rel='stylesheet' />
-<link rel="stylesheet" href="style.css">
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.js'></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
+<script src='https://npmcdn.com/mapbox-gl-circle/dist/mapbox-gl-circle.min.js'></script>
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -33,36 +34,10 @@ var map = new mapboxgl.Map({
     interactive: true
 });
 
-map.on('style.load', function (e) {
-    map.addSource('markers', {
-        "type": "geojson",
-        "data": {
-            "type": "FeatureCollection",
-            "features": [{
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [${centerString}]
-                },
-                "properties": {
-                    "modelId": 1,
-                },
-            }]
-        }
-    });
-    map.addLayer({
-        "id": "circles1",
-        "source": "markers",
-        "type": "circle",
-        "paint": {
-            "circle-radius": ${radius},
-            "circle-color": "#007cbf",
-            "circle-opacity": 0.5,
-            "circle-stroke-width": 0,
-        },
-        "filter": ["==", "modelId", 1],
-    });
-});
+var myCircle = new MapboxCircle([${centerString}, ${radius}*1000, {
+        editable: false,
+        fillColor: '#29AB87'
+    }).addTo(map);
 </script>
 </body>
 </html>`;
