@@ -5,7 +5,7 @@ window.function = function (centerString, radius, zoom) {
   zoom = zoom.value ?? 5;
 
   // Define your Mapbox access token
-  const accessToken = 'pk.eyJ1IjoiZHlsYW5kaWNrbWFuIiwiYSI6ImNrdWlqcHdzazBzbXYyd29mM2hmaTVvdHEifQ.HlV_ER1WGiQiDwItCNMisg';
+  const accessToken = 'pk.eyJ1IjoidGhpbmhkaW5obGNhIiwiYSI6ImNsNnVvY2o2MTF3eTkzam9hcDRmeDJtbHQifQ.Nmmy2O9Zugnyy5gLvDTgHA';
 
   // HTML content for the map
   let htmlContent = `
