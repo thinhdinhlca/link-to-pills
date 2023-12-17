@@ -65,7 +65,7 @@ map.on('click', function(e) {
 
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML('<h3>' + placeText + '</h3><p>' + placeName + '</p><p style="font-style: italic; font-size: smaller;">' + category + '</p>')
+                .setHTML('<h3>' + placeText + '</h3><p>' + placeName + '</p><p style="font-style: italic; font-size: 11px;">' + "Categories: " + category + '</p>')
                 .addTo(map);
         });
 });
