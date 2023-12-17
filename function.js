@@ -53,6 +53,20 @@ var myCircle = new MapboxCircle([${centerString}], ${radius}*1000, {
 var marker = new mapboxgl.Marker()
     .setLngLat([${centerString}])
     .addTo(map);
+
+// Add click event to the map for reverse geocoding
+map.on('click', function(e) {
+    fetch('https://api.mapbox.com/geocoding/v5/mapbox.places/' + e.lngLat.lng + ',' + e.lngLat.lat + '.json?access_token=${accessToken}')
+        .then(response => response.json())
+        .then(data => {
+            var placeName = data.features.length > 0 ? data.features[0].place_name : 'No address found';
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML('<h3>Place Information</h3><p>' + placeName + '</p>')
+                .addTo(map);
+        });
+});
+
 </script>
 </body>
 </html>`;
