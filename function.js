@@ -63,9 +63,14 @@ map.on('click', function(e) {
             var placeName = data.features.length > 0 ? data.features[0].place_name : 'No detailed address found';
             var category = data.features.length > 0 && data.features[0].properties.category ? data.features[0].properties.category : 'No category found';
 
+            // Remove the place text from the place name to avoid duplication
+            if (placeName.startsWith(placeText)) {
+                placeName = placeName.substring(placeText.length).trim();
+            }
+
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML('<h3>' + placeText + '</h3><p>' + placeName + '</p><p style="font-style: italic; font-size: 11px;">' + "Categories: " + category + '</p>')
+                .setHTML('<h3>' + placeText + '</h3><p>' + placeName + '</p><p style="font-style: italic; font-size: smaller;">' + category + '</p>')
                 .addTo(map);
         });
 });
