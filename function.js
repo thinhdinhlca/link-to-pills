@@ -59,10 +59,12 @@ map.on('click', function(e) {
     fetch('https://api.mapbox.com/geocoding/v5/mapbox.places/' + e.lngLat.lng + ',' + e.lngLat.lat + '.json?access_token=${accessToken}')
         .then(response => response.json())
         .then(data => {
-            var placeName = data.features.length > 0 ? data.features[0].place_name : 'No address found';
+            var placeText = data.features.length > 0 ? data.features[0].text : 'Unknown Place';
+            var placeName = data.features.length > 0 ? data.features[0].place_name : 'No detailed address found';
+
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML('<h3>Place Information</h3><p>' + placeName + '</p>')
+                .setHTML('<h3>' + placeText + '</h3><p>' + placeName + '</p>')
                 .addTo(map);
         });
 });
