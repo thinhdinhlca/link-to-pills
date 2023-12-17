@@ -53,7 +53,7 @@ var myCircle = new MapboxCircle([${centerString}], ${radius}*1000, {
 var marker = new mapboxgl.Marker()
     .setLngLat([${centerString}])
     .addTo(map);
-
+    
 // Add click event to the map for reverse geocoding
 map.on('click', function(e) {
     fetch('https://api.mapbox.com/geocoding/v5/mapbox.places/' + e.lngLat.lng + ',' + e.lngLat.lat + '.json?types=poi&access_token=${accessToken}')
@@ -64,16 +64,15 @@ map.on('click', function(e) {
             var category = data.features.length > 0 && data.features[0].properties.category ? data.features[0].properties.category : 'No category found';
 
             // Remove the place text from the place name to avoid duplication
-            if (placeName.startsWith(placeText)) {
-                placeName = placeName.substring(placeText.length).trim();
-            }
+            var cleanedPlaceName = placeName.replace(placeText, '').replace(/^,|,$/g, '').trim();
 
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML('<h3>' + placeText + '</h3><p>' + placeName + '</p><p style="font-style: italic; font-size: smaller;">' + category + '</p>')
+                .setHTML('<h3>' + placeText + '</h3><p>' + cleanedPlaceName + '</p><p style="font-style: italic; font-size: smaller;">' + "Categories: " + category + '</p>')
                 .addTo(map);
         });
 });
+
 
 </script>
 </body>
