@@ -7,8 +7,10 @@
         {
             "name": "urls",
             "displayName": "Links array",
+            "type": {
             "kind": "array",
             "items": "string"
+            }
         }
     ],
     "result": {
