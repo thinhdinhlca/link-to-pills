@@ -1,12 +1,14 @@
-window.function = function(urls) {
+window.function = function(urls, backgroundColor, textColor) {
     // Data
     urls = urls.value ?? "";
+    backgroundColor = backgroundColor.value ?? "#000";
+    textColor = textColor.value ?? "#FFF";
 
     // Decodes URL-encoded characters using decodeURIComponent
     const decodeUrls = urls.map(url => decodeURIComponent(url));
 
     // Defines the inline CSS for the pill-style links
-    const linkStyle = 'padding: 8px 15px; background-color: #613DC7; color: white; text-decoration: none; border-radius: 20px; margin: 5px; display: inline-block; font-size: 14px;';
+    const linkStyle = `padding: 8px 15px; background-color: ${backgroundColor}; color: ${textColor}; text-decoration: none; border-radius: 20px; margin: 5px; display: inline-block; font-size: 14px;`;
 
     // Creates an HTML string with anchor tags for each URL, including the ↗ emoji
     const linksHTML = decodeUrls.map(url => {
