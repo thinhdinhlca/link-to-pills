@@ -13,12 +13,12 @@
             }
         },
         {
-            "name": "Background color",
+            "name": "backgroundColor",
             "displayName": "Background color hex (default to black: #000)",
             "type": "string"
         },
         {
-            "name": "Text color",
+            "name": "textColor",
             "displayName": "Text color hex (default to white: #FFF)",
             "type": "string"
         }
