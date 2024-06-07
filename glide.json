@@ -11,6 +11,16 @@
             "kind": "array",
             "items": "string"
             }
+        },
+        {
+            "name": "Background color",
+            "displayName": "Background color hex (default to black: #000)",
+            "type": "string"
+        },
+        {
+            "name": "Text color",
+            "displayName": "Text color hex (default to white: #FFF)",
+            "type": "string"
         }
     ],
     "result": {
