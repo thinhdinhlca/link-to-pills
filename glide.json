@@ -1,23 +1,14 @@
 {
     "kind": "column",
-    "name": "Customized Mapbox with radius",
+    "name": "Turn multiple files to prettified links",
     "description": "",
     "author": "Thinh Dinh <thinh@lowcode.agency>",
     "params": [
         {
-            "name": "centerString",
-            "displayName": "Coordinates",
-            "type": "string"
-        },
-        {
-            "name": "radius",
-            "displayName": "Radius",
-            "type": "number"
-        },
-        {
-            "name": "zoom",
-            "displayName": "Zoom level",
-            "type": "number"
+            "name": "urls",
+            "displayName": "Links array",
+            "kind": "array",
+            "items": "string"
         }
     ],
     "result": {
